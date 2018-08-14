@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class='popup'>
+  <head>
+    <link rel="stylesheet" href="style.css" type="text/css"/> 
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/files.js"></script>
+	<script type="text/javascript" src="js/pop.js"></script>
+  </head>
+
+<body id="popup">
+  
+	<div id='header'>
+		SEO SERP Workbench <span id="versiontitle"></span> | <span id='projectinfo'></span>
+	</div>
+
+	<div id='mex'>hellow world</div>
+	
+	<table id="framing"><tr><td class="left">
+	
+		<div id='search_panel' class="panel">
+			<table cellpadding=0 cellspacing=0 id='filter'><tr>
+			<td>
+				<label>Keyword to search:<br/>
+					<input id="query" type="text" value='' tabindex='1' /><!-- onkeypress="process(event);" -->
+				</label>
+			</td><td>
+				<br/>
+				<input type='submit' class='xbutton' tabindex='4' value='submit' id='dosearch' />
+			</td>
+			</tr>
+			
+			</table>
+		  
+			<div id="resultDiv"></div>
+		</div>
+		
+	</td><td class="right" class="rightpanel">
+
+		<div class='bar'>
+			<span class='barbutton' id='list_projects'>projects</span><span class='barbutton' id='list_sites'>sites</span><span class='barbutton' id='list_results'>results</span><span class='barbutton' id='list_queries'>queries</span><span class='barbutton' id='show_reports'>reports</span><span class='barbutton' id='show_tips'>options</span><span class='barbutton' id='show_about'>help & info</span>
+		</div>
+	
+		<div class='panel'>
+		
+			<div id="stats_panel" class="rightpanel">
+				<div>
+					<label>keyword filter:<input id="keywordfilter_pageslist" type="text" value='' style="width:80px;" /></label>&nbsp;&nbsp;&nbsp;&nbsp;<label>site filter:<input id="sitefilter_pageslist" type="text" value='' style="width:80px;" /></label>
+				</div>
+				<div id="pagesList">
+				</div>
+			</div>
+
+			<div id="queries_panel" class="rightpanel">
+				<div class='panelbar'>
+					<label>filter <input id='filter_queries' type='text' value='' style='width:150px' /></label>
+				</div>
+				<div id="queriesList">
+				</div>
+				<input type='submit' class='xbutton' value='download list' id='download_queries' />
+				<div id="queriesgraph" style="width: 600px; height: 320px;"></div>
+				
+			</div>
+			
+			<div id="tips_panel" class="rightpanel">
+				<div id="optionsList">
+					<!--
+					<b>Options </b> : <br/>
+					
+					<ul>
+						<li>SafeSearch : <input type="radio" name="safesearch" value="off" disabled checked>OFF - <input type="radio" name="safesearch" value="on" disabled>ON</li>
+					</ul>
+
+					<b>Import </b> : <br/>
+					<ul>
+						<li>Paste here the previously exported data (could be slow with many records. Just wait for it to end)
+							<div id="copyImport"><textarea></textarea></div>
+							<input type='submit' class='xbutton' value='submit' id='doImport' />
+						</li>					
+					</ul>
+					-->
+					<b>Export </b> : <br/>
+					<ul>
+						<li>
+							<a href='grid.htm' target="blank" class="active">HTML grid</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+
+			<div id="sites_panel" class="rightpanel">
+				<div></div>	
+				<div id="sitesList">
+				</div>
+			</div>
+
+			<div id="projects_panel" class="rightpanel">
+				<div></div>	
+				<div id="projectsList">
+				   ...
+				</div>
+			</div>
+
+			<div id="reports_panel" class="rightpanel">
+				<div class='panelbar'>
+					<label> keyword <input id='reports_filter_queries' type='text' value='' style='width:150px' /></label>
+					<label style='padding-left:15px'>site <select id='reports_filter_sites' value='' style='max-width:150px; min-width:50px' /></select></label>
+					<label style='padding-left:15px'>logarithmic scale <input type='checkbox' id='reports_filter_log' ></label>
+				</div>
+				<div id="chart_div" style="width: 99%; height: 300px; margin-bottom:5px;"></div>
+				<div id="reportsList">
+					...
+				</div>
+			</div>
+			
+			<div id="about_panel" class="rightpanel">
+				<div>
+					
+				</div>	
+				<div id="aboutPage">
+				</div>
+
+				<table cellpadding=0 cellspacing=0 style="width:100%"><tr>
+					<td style='vertical-align:top; width:66%; padding-right:20px;'>
+						<h1>Help</h1>
+						techgyo.com wrote a <a href="http://techgyo.com/index.php/how-to-find-out-website-ranking-in-serp-for-free/" target="_blank">nice and simple tutorial to get you started</a>
+						<h1>FAQs</h1>
+						<h2>What about the "Bad response" error?</h2>
+						<p>Each time you submit a keyword, a real search is performed on the selected Web Search Engine.<br>If too many searches are done in a short time, the Web Search Engine will block your actions for a while.<br>I suggest to diluite your searches over time. To help you on not loosing track, the latest keyword used is highlighted in the list.
+						</p>
+						<h2>I have tons of keywords to check, can this be automated?</h2>
+						<p>No, for the same reason stated above.<br>
+						If it is any consolation, you are already saving a lot of time with using this app.
+						</p>
+						<h2>I can't find my country when creating a new project.</h2>
+						<p>Send feedback from the <a href="https://chrome.google.com/webstore/detail/seo-serp-workbench/ehbgolklgacemnfnmkkpgekngaaggjjl/details" target="_blank">Chrome Web Store</a></p>
+						<h2>Could you please explain shortly how is the rating value calculated in the "HTML Grid" ?</h2>
+						<p>It averages all the keys the positions, and the site gets a 100% score if is at 1st position for all the keywords.<br>
+						Blank positions (site not appearing in the first 100 positions) are considered just like 100</p>
+						
+					</td>
+					<td style='vertical-align:top; width:33%'>
+						<h1>Please support this FREE app</h1>
+						<h2>If you find it useful, you can:</h2>
+						<br>
+						Star it <a href='https://chrome.google.com/webstore/detail/ehbgolklgacemnfnmkkpgekngaaggjjl' target='_blank'>in the application page on the Web Store</a><br>
+						<br>
+						<br>
+						<div class="g-plus" data-action="share" data-href="https://chrome.google.com/webstore/detail/seo-serp-workbench/ehbgolklgacemnfnmkkpgekngaaggjjl"></div></li>
+						<br>
+						<br>
+						Donate with PayPal. The amount is open, just consider how much time you spare using SEO&nbsp;SERP&nbsp;Workbench. 
+						<br>
+						<br>
+						<a href='https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WKH934ZF4MPNW&lc=GB&item_name=Seo%20Serp%20Workbench&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted'><img src='gfx/btn_donateCC_LG_global.gif' target='_blank'></a><br>
+					</td>
+
+				</tr></table>
+					
+				<!--
+				<br>
+				<b>Tips </b> : <br/>
+				<ul>
+					<li>Hover the results to see the full address</li>
+					<li>CTRL-click or mid-mouse-button click to open the result sites without closing SEO SERP</li>
+					<li>Use <a href='https://chrome.google.com/extensions/detail/ibkclpciafdglkjkcibmohobjkcfkaef' target='_blank'>META SEO inspector</a> extension to inspect the best ranking sites</li>
+				</ul>
+				-->
+			
+			</div>
+			
+		</div>
+		
+	</td></tr></table>
+		
+</body></html>
